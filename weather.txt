@@ -1,0 +1,16 @@
+檔案名稱 / weather.php
+opendata來源 / 鄉鎮天氣預報-台灣未來2天天氣預報
+主要欄位說明: 
+locationName、elementName、description(溫度、露點溫度、相對濕度、6小時降雨機率、12小時降雨機率、風向、風速、舒適度指數、體感溫度、天氣現象、天氣預報綜合描述)
+檔案格式: API
+編碼: UTF-8
+資料量:0
+資源網址:https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=rdec-key-123-45678-011121314
+資源描述:API
+資料資源更新時間: 2018/07/25 17:09
+
+運作方式
+
+1)會員登入後擷取會員資料設置的鄉鎮市區資料
+2)使用串接API即時得到未來2天天氣預報
+3)將天氣資訊顯示於(社區大小事平台)預呈現區域
