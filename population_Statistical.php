@@ -5,22 +5,11 @@ session_start();
 include_once("../config.php");
 include_once("../lock.php");
 
-$value_a = htmlspecialchars($login_RS["city"]);
-$value_b = htmlspecialchars($login_RS["area"]);
-$value_c = htmlspecialchars($login_RS["lining"]);
+$value_a = htmlspecialchars($login_RS["city"]);//會員所在城市
+$value_b = htmlspecialchars($login_RS["area"]);//會員所在鄉鎮市區
+$value_c = htmlspecialchars($login_RS["lining"]);//會員所在村里
 
-
-$login_id = htmlspecialchars($login_RS["memberID"]);
-$sql_new_list = $pdo->prepare("SELECT * FROM `top_news` WHERE (`city`='$value_a' AND `area`='$value_b' AND `lining`='$value_c')||(`city`='' AND `area`='' AND `lining`='') AND `status` = '1'");
-$sql_new_list->execute();
-$new_list = $sql_new_list->fetchAll();
-
-
-$sql_historic_buildings_list = $pdo->prepare("SELECT * FROM `historic_buildings` WHERE (`city`='$value_a' AND `address` LIKE '%$value_b%')");
-$sql_historic_buildings_list->execute();
-$historic_buildings_list = $sql_historic_buildings_list->fetchAll();
-
-$sql_people = $pdo->prepare("SELECT * FROM `people` WHERE `COUNTY`='$value_people_town' AND TOWN='$value_people_area' AND VILLAGE='$value_people_lining' LIMIT 1");
+$sql_people = $pdo->prepare("SELECT * FROM `people` WHERE `COUNTY`='$value_people_town' AND TOWN='$value_people_area' AND VILLAGE='$value_people_lining' LIMIT 1");//查詢資料庫村里人口數量資料
 $sql_people->execute();
 $people_list = $sql_people->fetchAll();
 foreach ($people_list as $people_RS){}
@@ -46,7 +35,7 @@ foreach ($people_list as $people_RS){}
 		  $TOWN_ID = htmlspecialchars($people_RS["TOWN_ID"]);
 		  $V_ID = htmlspecialchars($people_RS["V_ID"]);
 		  
-		  $sql_year_4 = $pdo->prepare("SELECT A0A4_CNT,A5A9_CNT,A10A14_CNT,A15A19_CNT,A20A24_CNT,A25A29_CNT,A30A34_CNT,A35A39_CNT,A40A44_CNT,A45A49_CNT,A50A54_CNT,A55A59_CNT,A60A64_CNT,A65A69_CNT,A70A74_CNT,A75A79_CNT,A80A84_CNT,A85A89_CNT,A90A94_CNT,A95A99_CNT,A100UP_5_CNT FROM `people_year` WHERE `COUNTY_ID`='$COUNTY_ID' and `TOWN_ID`='$TOWN_ID' and `V_ID`='$V_ID'");
+		  $sql_year_4 = $pdo->prepare("SELECT A0A4_CNT,A5A9_CNT,A10A14_CNT,A15A19_CNT,A20A24_CNT,A25A29_CNT,A30A34_CNT,A35A39_CNT,A40A44_CNT,A45A49_CNT,A50A54_CNT,A55A59_CNT,A60A64_CNT,A65A69_CNT,A70A74_CNT,A75A79_CNT,A80A84_CNT,A85A89_CNT,A90A94_CNT,A95A99_CNT,A100UP_5_CNT FROM `people_year` WHERE `COUNTY_ID`='$COUNTY_ID' and `TOWN_ID`='$TOWN_ID' and `V_ID`='$V_ID'");//查詢資料庫村里人口結構資料
 $sql_year_4->execute();
 $year_4list = $sql_year_4->fetchAll();
 foreach ($year_4list as $yearRS){}
