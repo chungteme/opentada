@@ -1,0 +1,22 @@
+檔案名稱 / pregnancy.php
+opendata來源 / 臺北市好孕胸章索取地點及電話一覽表
+
+主要欄位說明: 
+索取地點(name)、地址(addres)、電話(telephone)
+檔案格式: 
+CSV
+編碼: 
+BIG5
+資料量: 
+0
+資源網址: 
+https://data.taipei/api/getDatasetInfo/downloadResource?id=e9a28a2d-eb6c-4127-8f7e-1ef6204baf1a&rid=67945251-c1c0-4fee-a500-2c6fbdea16ba
+資源描述: 
+臺北市好孕胸章索取地點及電話一覽表
+資料資源更新時間: 
+2017/09/13 14:19
+
+運作方式
+
+1)因地點及電話並非經常性變動數字,所以使用opendata所提供CSV檔案,並將檔案由(社區大小事平台)後台管理將CSV檔匯入到使用資料庫
+2)將地點及電話資訊顯示於(社區大小事平台)預呈現區域
